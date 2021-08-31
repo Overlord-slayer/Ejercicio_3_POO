@@ -1,0 +1,5 @@
+class Estacionamiento {
+
+    public Estacionamiento() {
+    }
+}
