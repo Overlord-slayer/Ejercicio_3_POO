@@ -1,3 +1,9 @@
+/**
+ * Esta clase servirá para poder tener registro de los nuevos vehículos que
+ * ingresan al estacionamiento.
+ * 
+ * @author Josúe Samuel Argueta Hernández
+ */
 public class Vehiculo {
     private String vehiculo, placa_vehiculo;
     private String modelo_vehiculo, marca_vehiculo;

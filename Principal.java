@@ -25,12 +25,11 @@ public class Principal {
             switch (opcion) {
                 case 1:
                     // Aparcar vehiculo
-                    System.out.println("Hola");
+                    datos_vehiculo();
                     break;
                 case 2:
                     // Crear parqueo
-                    Estacionamiento nuevo = new Estacionamiento();
-                    System.out.println("adios");
+
                     break;
                 case 3:
                     // Datos Estadisticos
@@ -69,4 +68,21 @@ public class Principal {
         return opcion;
     }
 
+    /**
+     * Este método es para poder obtener los datos del vehículo por parte del
+     * usuario.
+     */
+    private static void datos_vehiculo() {
+        String vehiculo, placa_vehiculo, marca_vehiculo, modelo_vehiculo;
+        vista.nuevo_vehiculo();
+        Estacionamiento nuevo_vehiculo = new Estacionamiento();
+
+        vehiculo = JOptionPane.showInputDialog(vista.dimensiones());
+        placa_vehiculo = JOptionPane.showInputDialog(vista.placa());
+        marca_vehiculo = JOptionPane.showInputDialog(vista.marca());
+        modelo_vehiculo = JOptionPane.showInputDialog(vista.modelo());
+
+        nuevo_vehiculo.agregar_vehiculo(vehiculo, placa_vehiculo, marca_vehiculo, modelo_vehiculo);
+
+    }
 }

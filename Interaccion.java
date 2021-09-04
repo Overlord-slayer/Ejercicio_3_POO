@@ -1,5 +1,3 @@
-import java.beans.VetoableChangeListener;
-
 /**
  * Está clase, su función principal es poder dar una interacción amena con el
  * usuario.
@@ -23,6 +21,12 @@ public class Interaccion {
         System.out.println("4. Salir");
     }
 
+    /**
+     * Este metodo sirve para mostrar el mensaje para que el usuario ingrese la
+     * opcion que desea.
+     * 
+     * @return mensaje: String
+     */
     public String opciones_menu() {
         String mensaje = "Ingrese la opcion que desea utilizar:";
         return mensaje;
@@ -48,7 +52,7 @@ public class Interaccion {
      * del menú.
      */
     public void opcion_invalida() {
-        System.out.println("Debe ingresar un valor segun el menu");
+        System.out.println("DEBE INGRESAR UNA OPCION SEGUN EL MENU");
     }
 
     /**
@@ -56,11 +60,55 @@ public class Interaccion {
      * numéricos.
      */
     public void valor_invalido() {
-        System.out.println("Debe ingresar un numero");
+        System.out.println("DEBE INGRESAR UN NUMERO");
     }
 
+    /**
+     * Este método sirve para solicitarle al usuario, de manera textual, que ingrese
+     * los datos del vehículo.
+     */
     public void nuevo_vehiculo() {
-        System.out.println("Ingrese los datos del vehiculo");
+        System.out.println("\nIngrese los datos del vehiculo:");
+    }
+
+    /**
+     * Este metodo sirve para mostrarle el tipo de dimensiones para el vehiculo.
+     * 
+     * @return dimension: String
+     */
+    public String dimensiones() {
+        String dimension = "Ingrese la dimension del vehiculo (Compact, Standard, Standard Large)";
+        return dimension;
+    }
+
+    /**
+     * Este método sirve para solicitar, de manera textual, la placa del vehículo.
+     * 
+     * @return placa: String
+     */
+    public String placa() {
+        String placa = "Ingrese el numero de placa del vehiculo";
+        return placa;
+    }
+
+    /**
+     * Este método sirve para solicitar, de manera textual, la marca del vehículo.
+     * 
+     * @return marca: String
+     */
+    public String marca() {
+        String marca = "Ingrese la marca del vehiculo";
+        return marca;
+    }
+
+    /**
+     * Este método sirve para solicitar, de manera textual, la marca del vehículo.
+     * 
+     * @return modelo: String
+     */
+    public String modelo() {
+        String modelo = "Ingrese el modelo del vehiculo";
+        return modelo;
     }
 
     public void nuevo_estacionamiento() {
