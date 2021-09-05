@@ -10,7 +10,6 @@ import java.util.ArrayList;
 class Estacionamiento {
     private String nombre, direccion;
     private float precio;
-    private ArrayList<Vehiculo> vehiculos;
     private ArrayList<EspacioParqueo> espacioParqueos;
     private Archivos datos = new Archivos();
 
@@ -19,7 +18,6 @@ class Estacionamiento {
      * almacenar los datos del vehiculo.
      */
     public Estacionamiento() {
-        vehiculos = new ArrayList<>();
         espacioParqueos = new ArrayList<>();
     }
 
@@ -49,21 +47,8 @@ class Estacionamiento {
      */
     public void agregar_vehiculo(String vehiculo, String placa_vehiculo, String marca_vehiculo, String modelo_vehiculo,
             String hora_entrada) {
-        Vehiculo nuevo = new Vehiculo(vehiculo, placa_vehiculo, marca_vehiculo, modelo_vehiculo, hora_entrada);
-        vehiculos.add(nuevo);
-
-    }
-
-    public String[] getArray(String vehiculo, String placa_vehiculo, String marca_vehiculo, String modelo_vehiculo,
-            String hora_entrada) {
-        String[] datos = { vehiculo, placa_vehiculo, modelo_vehiculo, marca_vehiculo, hora_entrada };
-        return datos;
-    }
-
-    public void visualizarVehiculo() {
-        for (int i = 0; i < vehiculos.size(); i++) {
-            System.out.println(vehiculos.get(i).getVehiculo());
-        }
+        Vehiculo vehiculos = new Vehiculo(vehiculo, placa_vehiculo, marca_vehiculo, modelo_vehiculo, hora_entrada);
+        datos.guardar_vehiculos(vehiculo, placa_vehiculo, marca_vehiculo, modelo_vehiculo, hora_entrada);
     }
 
 }

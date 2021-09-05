@@ -12,6 +12,7 @@ public class Principal {
     // tener utilizacion en todo sentido de la clase Interaccion
     private static Interaccion vista = new Interaccion();
     private static Estacionamiento aparcar_vehiculo = new Estacionamiento();
+    private static Archivos datos = new Archivos();
 
     /**
      * Método principal que contiene todas las instancias necesarias para poder dar
@@ -19,10 +20,10 @@ public class Principal {
      * 
      * @param args: String
      */
-    public void main(String[] args) {
+    public static void main(String[] args) {
         vista.bienvenida();
         byte opcion = 0;
-        while (opcion != 4) {
+        while (opcion != 5) {
             opcion = menu_opcion();
             switch (opcion) {
                 case 1:
@@ -59,7 +60,7 @@ public class Principal {
             vista.menu();
             try {
                 opcion = Byte.parseByte(JOptionPane.showInputDialog(vista.opciones_menu()));
-                if ((opcion < 1) || (opcion > 4)) {
+                if ((opcion < 1) || (opcion > 5)) {
                     vista.opcion_invalida();
                 } else {
                     pasar = true;
@@ -82,8 +83,6 @@ public class Principal {
         String hora_entrada;
         vista.nuevo_vehiculo();
 
-        boolean pasar = false;
-
         vehiculo = JOptionPane.showInputDialog(vista.dimensiones());
         placa_vehiculo = JOptionPane.showInputDialog(vista.placa());
         marca_vehiculo = JOptionPane.showInputDialog(vista.marca());
@@ -91,7 +90,6 @@ public class Principal {
         hora_entrada = JOptionPane.showInputDialog(vista.hora_ingreso());
 
         aparcar_vehiculo.agregar_vehiculo(vehiculo, placa_vehiculo, marca_vehiculo, modelo_vehiculo, hora_entrada);
-        aparcar_vehiculo.visualizarVehiculo();
     }
 
     private static void datos_parqueo() {

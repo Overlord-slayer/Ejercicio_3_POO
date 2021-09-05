@@ -15,14 +15,24 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class Archivos {
+    private Interaccion vista = new Interaccion();
+    private ArrayList<Vehiculo> vehiculos;
 
-    public static void leer_CSV() {
+    public Archivos() {
+        vehiculos = new ArrayList<>();
+    }
+
+    /**
+     * Lectura de la inforamacion que esta almacenada en un arhcivo.
+     */
+    public void leer_CSV(String nombre_archivo) {
         // StringBuilder sb = new StringBuilder();
         ArrayList<ArrayList<String>> datos_vehiculos = new ArrayList<ArrayList<String>>();
         // Modificar la ruta segun la ruta donde guarde los archivos, recordad que la
         // carpeta archivos se encuentran todos los archivos a utlilizar.
         Path filePath = Paths
-                .get("C:/Users/s5349/Documents/Universidad/Tareas_Universidad/Ejercicio_3/Archivos/Aparcados.csv");
+                .get("C:\\Users\\s5349\\Documents\\Universidad\\Tareas_Universidad\\Ejercicio_3\\Archivos\\"
+                        + nombre_archivo);
         try {
             // Tratar de leer el archivo segun su ruta.
             BufferedReader br = Files.newBufferedReader(filePath);
@@ -45,30 +55,34 @@ public class Archivos {
 
     }
 
-    public void guardar(String nombre_archivo) {
+    public void guardar(String nombre_archivo, String titulos) {
         File archivo;
         try {
             // Modificar la ruta del arhcivo a la ruta donde se ubica actualmente
-            archivo = new File(
-                    "C:/Users/s5349/Documents/Universidad/Tareas_Universidad/Ejercicio_3/Archivos/" + nombre_archivo);
-            if (archivo.createNewFile()) {
-                if (archivo.exists()) {
-                    System.out.println("El archivo ya existe");
-                    BufferedWriter bw = new BufferedWriter(new FileWriter(nombre_archivo, true));
-                    bw.write("Dimension,placa,modelo,marca,entrada");
-                    bw.write("\n");
-                    bw.close();
-                } else {
-                    System.out.println("Se ha creado");
+            archivo = new File("C:\\Users\\s5349\\Documents\\Universidad\\Tareas_Universidad\\Ejercicio_3\\Archivos\\"
+                    + nombre_archivo);
+            if (archivo.exists()) {
+                vista.archivo_existente();
+                BufferedWriter bw = new BufferedWriter(new FileWriter(nombre_archivo, true));
+                bw.write(titulos + "\n");
+                for (Vehiculo vehiculo : vehiculos) {
+                    String datos[] = vehiculo.getArray();
+                    bw.write(datos + "\n");
                 }
+                bw.close();
+            } else if (archivo.createNewFile()) {
+                vista.nuevo_archivo();
             }
         } catch (IOException exception) {
-            System.out.println("No se ha podido crear el archvivo." + exception);
+            System.err.println(vista.archivo_no_creado() + exception);
         }
     }
 
-    public void guardar_vehiculos() {
-
+    public void guardar_vehiculos(String vehiculo, String placa_vehiculo, String marca_vehiculo, String modelo_vehiculo,
+            String hora_entrada) {
+        Vehiculo nuevo = new Vehiculo(vehiculo, placa_vehiculo, marca_vehiculo, modelo_vehiculo, hora_entrada);
+        vehiculos.add(nuevo);
+        guardar("Aparcados.csv", "Dimension,placa,modelo,marca,entrada");
     }
 
 }

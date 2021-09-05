@@ -134,6 +134,32 @@ public class Interaccion {
         return salida;
     }
 
+    /**
+     * Este método muestra de manera textual si es que se ha podido crear el
+     * archivo.
+     */
+    public void nuevo_archivo() {
+        System.out.println("Se ha creado el archivo.");
+    }
+
+    /**
+     * Este método muestra de manera textual si es que no se ha podido hallar el
+     * archivo.
+     */
+    public void archivo_existente() {
+        System.out.println("El archivo ya existe.");
+    }
+
+    /**
+     * Este método muestra de manera textual que no se ha podido crear el archivo.
+     * 
+     * @return no_creado: String
+     */
+    public String archivo_no_creado() {
+        String no_creado = "No se ha podido crear el archivo. ";
+        return no_creado;
+    }
+
     public void nuevo_estacionamiento() {
         System.out.println("Ingrese los datos del parqueo");
     }
