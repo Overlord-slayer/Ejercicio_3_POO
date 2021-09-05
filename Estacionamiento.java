@@ -11,6 +11,7 @@ class Estacionamiento {
     private String nombre, direccion, precio;
     private ArrayList<Vehiculo> vehiculos;
     private ArrayList<EspacioParqueo> espacioParqueos;
+    private Archivos datos = new Archivos();
 
     /**
      * Este contructor crea la instacia de un arreglo dinamico de tipo Vehiculo para
@@ -36,18 +37,20 @@ class Estacionamiento {
     }
 
     /**
-     * Este metodo sirve para poder almacenar los vehiculos nuevos que son
+     * Este método sirve para poder almacenar los vehiculos nuevos que son
      * aparcados.
      * 
      * @param vehiculo:        String
      * @param placa_vehiculo:  String
      * @param marca_vehiculo:  String
      * @param modelo_vehiculo: String
+     * @param hora_entrada:    String
      */
-    public void agregar_vehiculo(String vehiculo, String placa_vehiculo, String marca_vehiculo,
-            String modelo_vehiculo) {
-        Vehiculo nuevo = new Vehiculo(vehiculo, placa_vehiculo, marca_vehiculo, modelo_vehiculo);
+    public void agregar_vehiculo(String vehiculo, String placa_vehiculo, String marca_vehiculo, String modelo_vehiculo,
+            String hora_entrada) {
+        Vehiculo nuevo = new Vehiculo(vehiculo, placa_vehiculo, marca_vehiculo, modelo_vehiculo, hora_entrada);
         vehiculos.add(nuevo);
+        // datos.guardar();
     }
 
     public void visualizarVehiculo() {

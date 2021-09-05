@@ -7,41 +7,74 @@
 public class Vehiculo {
     private String vehiculo, placa_vehiculo;
     private String modelo_vehiculo, marca_vehiculo;
-    private String horas_estacionado;
+    private String hora_entrada, hora_salida;
+
+    public Vehiculo(String placa_vehiculo, String hora_salida) {
+        this.placa_vehiculo = placa_vehiculo;
+        this.hora_salida = hora_salida;
+    }
 
     public Vehiculo(String vehiculo, String placa_vehiculo, String marca_vehiculo, String modelo_vehiculo,
-            String horas_estacionado) {
+            String hora_entrada) {
         this.vehiculo = vehiculo;
         this.placa_vehiculo = placa_vehiculo;
         this.marca_vehiculo = marca_vehiculo;
         this.modelo_vehiculo = modelo_vehiculo;
-        this.horas_estacionado = horas_estacionado;
+        this.hora_entrada = hora_entrada;
     }
 
-    public Vehiculo(String vehiculo, String placa_vehiculo, String marca_vehiculo, String modelo_vehiculo) {
-        this.vehiculo = vehiculo;
-        this.placa_vehiculo = placa_vehiculo;
-        this.marca_vehiculo = marca_vehiculo;
-        this.modelo_vehiculo = modelo_vehiculo;
-    }
-
+    /**
+     * Este método sirve para obtener el tipo de largo del vehiculo.
+     * 
+     * @return vehiculo: String
+     */
     public String getVehiculo() {
         return vehiculo;
     }
 
+    /**
+     * Este método devuelve la placa del vehículo.
+     * 
+     * @return placa_vehiculo: String
+     */
     public String getPlaca() {
         return placa_vehiculo;
     }
 
+    /**
+     * Este método devuelve el modelo del vehículo.
+     * 
+     * @return modelo_vehiculo: String
+     */
     public String getModelo() {
         return modelo_vehiculo;
     }
 
+    /**
+     * Este método devuelve la marca del vehículo.
+     * 
+     * @return marca_vehiculo: String
+     */
     public String getMarca() {
         return marca_vehiculo;
     }
 
+    /**
+     * Este método devuelve las horas que ha estado estacionado el vehículo.
+     * 
+     * @return hora_entrada: String
+     */
     public String getHoras_estacionado() {
-        return horas_estacionado;
+        return hora_entrada;
     }
+
+    /**
+     * Este método devuelve la hora de sálida del vehículo.
+     * 
+     * @return hora_salida: String
+     */
+    public String getHora_salida() {
+        return hora_salida;
+    }
+
 }

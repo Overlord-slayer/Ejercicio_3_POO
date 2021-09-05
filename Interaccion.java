@@ -112,6 +112,28 @@ public class Interaccion {
         return modelo;
     }
 
+    /**
+     * Esta método sirve para mostrar de manera texutal que ingrese la hora de
+     * entrada del vehículo al estacionamiento.
+     * 
+     * @return entrada: String
+     */
+    public String hora_ingreso() {
+        String entrada = "Ingrese la hora de entrada del vehiculo:";
+        return entrada;
+    }
+
+    /**
+     * Este método sirver para mostrar de manera texual al usuaio que ingrese la
+     * hora de salida del vehiculo.
+     * 
+     * @return salida: String
+     */
+    public String hora_salida() {
+        String salida = "Ingrese la hora de salida del vehicuo:";
+        return salida;
+    }
+
     public void nuevo_estacionamiento() {
         System.out.println("Ingrese los datos del parqueo");
     }

@@ -19,7 +19,7 @@ public class Principal {
      * 
      * @param args: String
      */
-    public static void main(String[] args) {
+    public void main(String[] args) {
         vista.bienvenida();
         byte opcion = 0;
         while (opcion != 4) {
@@ -79,6 +79,7 @@ public class Principal {
      */
     private static void datos_vehiculo() {
         String vehiculo, placa_vehiculo, marca_vehiculo, modelo_vehiculo;
+        String hora_entrada;
         vista.nuevo_vehiculo();
 
         boolean pasar = false;
@@ -87,8 +88,9 @@ public class Principal {
         placa_vehiculo = JOptionPane.showInputDialog(vista.placa());
         marca_vehiculo = JOptionPane.showInputDialog(vista.marca());
         modelo_vehiculo = JOptionPane.showInputDialog(vista.modelo());
+        hora_entrada = JOptionPane.showInputDialog(vista.hora_ingreso());
 
-        aparcar_vehiculo.agregar_vehiculo(vehiculo, placa_vehiculo, marca_vehiculo, modelo_vehiculo);
+        aparcar_vehiculo.agregar_vehiculo(vehiculo, placa_vehiculo, marca_vehiculo, modelo_vehiculo, hora_entrada);
         aparcar_vehiculo.visualizarVehiculo();
     }
 
