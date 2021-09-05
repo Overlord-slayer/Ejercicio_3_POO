@@ -77,4 +77,9 @@ public class Vehiculo {
         return hora_salida;
     }
 
+    public String[] getArray() {
+        String[] datos = { vehiculo, placa_vehiculo, modelo_vehiculo, marca_vehiculo, hora_entrada };
+        return datos;
+    }
+
 }

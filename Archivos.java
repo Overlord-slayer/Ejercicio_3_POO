@@ -5,7 +5,9 @@
  *  @author Josúe Samuel Argueta Hernández.
  */
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -52,13 +54,21 @@ public class Archivos {
             if (archivo.createNewFile()) {
                 if (archivo.exists()) {
                     System.out.println("El archivo ya existe");
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(nombre_archivo, true));
+                    bw.write("Dimension,placa,modelo,marca,entrada");
+                    bw.write("\n");
+                    bw.close();
                 } else {
                     System.out.println("Se ha creado");
                 }
             }
         } catch (IOException exception) {
-            System.out.println("No se ha podido crear el archvivo.");
+            System.out.println("No se ha podido crear el archvivo." + exception);
         }
+    }
+
+    public void guardar_vehiculos() {
+
     }
 
 }

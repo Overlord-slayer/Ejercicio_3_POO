@@ -8,7 +8,8 @@ import java.util.ArrayList;
  */
 
 class Estacionamiento {
-    private String nombre, direccion, precio;
+    private String nombre, direccion;
+    private float precio;
     private ArrayList<Vehiculo> vehiculos;
     private ArrayList<EspacioParqueo> espacioParqueos;
     private Archivos datos = new Archivos();
@@ -30,7 +31,7 @@ class Estacionamiento {
      * @param direccion
      * @param precio
      */
-    public Estacionamiento(String nombre, String direccion, String precio) {
+    public Estacionamiento(String nombre, String direccion, float precio) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.precio = precio;
@@ -50,7 +51,13 @@ class Estacionamiento {
             String hora_entrada) {
         Vehiculo nuevo = new Vehiculo(vehiculo, placa_vehiculo, marca_vehiculo, modelo_vehiculo, hora_entrada);
         vehiculos.add(nuevo);
-        // datos.guardar();
+
+    }
+
+    public String[] getArray(String vehiculo, String placa_vehiculo, String marca_vehiculo, String modelo_vehiculo,
+            String hora_entrada) {
+        String[] datos = { vehiculo, placa_vehiculo, modelo_vehiculo, marca_vehiculo, hora_entrada };
+        return datos;
     }
 
     public void visualizarVehiculo() {
