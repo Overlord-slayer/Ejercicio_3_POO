@@ -1,3 +1,4 @@
+
 import javax.swing.JOptionPane;
 
 /**
@@ -10,6 +11,7 @@ public class Principal {
     // Se agreago esta "propiedad" al metodo principa, puesto que se desea
     // tener utilizacion en todo sentido de la clase Interaccion
     private static Interaccion vista = new Interaccion();
+    private static Estacionamiento aparcar_vehiculo = new Estacionamiento();
 
     /**
      * Método principal que contiene todas las instancias necesarias para poder dar
@@ -28,10 +30,13 @@ public class Principal {
                     datos_vehiculo();
                     break;
                 case 2:
-                    // Crear parqueo
+                    // Sacar vehiculo
 
                     break;
                 case 3:
+                    // Crear parqueo
+                    break;
+                case 4:
                     // Datos Estadisticos
                     break;
                 default:
@@ -75,14 +80,20 @@ public class Principal {
     private static void datos_vehiculo() {
         String vehiculo, placa_vehiculo, marca_vehiculo, modelo_vehiculo;
         vista.nuevo_vehiculo();
-        Estacionamiento nuevo_vehiculo = new Estacionamiento();
+
+        boolean pasar = false;
 
         vehiculo = JOptionPane.showInputDialog(vista.dimensiones());
         placa_vehiculo = JOptionPane.showInputDialog(vista.placa());
         marca_vehiculo = JOptionPane.showInputDialog(vista.marca());
         modelo_vehiculo = JOptionPane.showInputDialog(vista.modelo());
 
-        nuevo_vehiculo.agregar_vehiculo(vehiculo, placa_vehiculo, marca_vehiculo, modelo_vehiculo);
+        aparcar_vehiculo.agregar_vehiculo(vehiculo, placa_vehiculo, marca_vehiculo, modelo_vehiculo);
+        aparcar_vehiculo.visualizarVehiculo();
+    }
 
+    private static void datos_parqueo() {
+        String ancho, largo, altura, techado, aereo;
+        vista.nuevo_estacionamiento();
     }
 }

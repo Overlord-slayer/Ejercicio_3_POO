@@ -10,6 +10,7 @@ import java.util.ArrayList;
 class Estacionamiento {
     private String nombre, direccion, precio;
     private ArrayList<Vehiculo> vehiculos;
+    private ArrayList<EspacioParqueo> espacioParqueos;
 
     /**
      * Este contructor crea la instacia de un arreglo dinamico de tipo Vehiculo para
@@ -17,6 +18,7 @@ class Estacionamiento {
      */
     public Estacionamiento() {
         vehiculos = new ArrayList<>();
+        espacioParqueos = new ArrayList<>();
     }
 
     /**
@@ -47,4 +49,11 @@ class Estacionamiento {
         Vehiculo nuevo = new Vehiculo(vehiculo, placa_vehiculo, marca_vehiculo, modelo_vehiculo);
         vehiculos.add(nuevo);
     }
+
+    public void visualizarVehiculo() {
+        for (int i = 0; i < vehiculos.size(); i++) {
+            System.out.println(vehiculos.get(i).getVehiculo());
+        }
+    }
+
 }

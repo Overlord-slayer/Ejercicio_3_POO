@@ -7,10 +7,10 @@
 public class Vehiculo {
     private String vehiculo, placa_vehiculo;
     private String modelo_vehiculo, marca_vehiculo;
-    private float horas_estacionado;
+    private String horas_estacionado;
 
     public Vehiculo(String vehiculo, String placa_vehiculo, String marca_vehiculo, String modelo_vehiculo,
-            float horas_estacionado) {
+            String horas_estacionado) {
         this.vehiculo = vehiculo;
         this.placa_vehiculo = placa_vehiculo;
         this.marca_vehiculo = marca_vehiculo;
@@ -25,4 +25,23 @@ public class Vehiculo {
         this.modelo_vehiculo = modelo_vehiculo;
     }
 
+    public String getVehiculo() {
+        return vehiculo;
+    }
+
+    public String getPlaca() {
+        return placa_vehiculo;
+    }
+
+    public String getModelo() {
+        return modelo_vehiculo;
+    }
+
+    public String getMarca() {
+        return marca_vehiculo;
+    }
+
+    public String getHoras_estacionado() {
+        return horas_estacionado;
+    }
 }

@@ -16,9 +16,10 @@ public class Interaccion {
     public void menu() {
         System.out.println("\nESCOJA LA OPCION QUE DESEA SEGUIR\n");
         System.out.println("1. Aparcar Vehiculo");
-        System.out.println("2. Crear nuevo parqueo");
-        System.out.println("3. Datos estadisticos");
-        System.out.println("4. Salir");
+        System.out.println("2. Sacar Vehiculo");
+        System.out.println("3. Crear nuevo parqueo");
+        System.out.println("4. Datos estadisticos");
+        System.out.println("5. Salir");
     }
 
     /**
