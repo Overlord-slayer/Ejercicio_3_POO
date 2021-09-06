@@ -60,8 +60,9 @@ public class Interaccion {
      * Este método, serivirrá para indicarle al usuario que ingrese valores
      * numéricos.
      */
-    public void valor_invalido() {
-        System.out.println("DEBE INGRESAR UN NUMERO");
+    public String valor_invalido() {
+        String invalido = "DEBE INGRESAR UN NUMERO";
+        return invalido;
     }
 
     /**
@@ -160,11 +161,92 @@ public class Interaccion {
         return no_creado;
     }
 
+    /**
+     * Este metodo solicita que ingrese los datos del estacionmiento
+     */
     public void nuevo_estacionamiento() {
-        System.out.println("Ingrese los datos del parqueo");
+        System.out.println("Ingrese los datos del estacionamiento");
     }
 
-    public void direccion_estacionamiento() {
-        System.out.println("Ingrese el nombre del parqueo: ");
+    /**
+     * Este método sirve para solicitar de manera textual los datos del Parqueo
+     */
+    public void nuevo_parqueo() {
+        System.out.println("Ingrese los datos del estacionamiento");
+    }
+
+    /**
+     * Este método sirve para solicitar de manerta texutal los datos del ancho del
+     * Parqueo
+     * 
+     * @return ancho: String
+     */
+    public String ancho() {
+        String ancho = "Ingrese el ancho del parqueo";
+        return ancho;
+    }
+
+    /**
+     * Este método sirve para solicitar de manera textual los datos del alto del
+     * Parqueo
+     * 
+     * @return alto: String
+     */
+    public String alto() {
+        String alto = "Ingrese el alto del parqueo";
+        return alto;
+    }
+
+    /**
+     * Este método sirve para solicitar de manera textual los datos del largo del
+     * Parqueo.
+     * 
+     * @return largo: String
+     */
+    public String largo() {
+        String largo = "Ingrese el largo del parqueo";
+        return largo;
+    }
+
+    /**
+     * Este método sirve para solicitar de manera textual los datos del techado del
+     * Parqueo, si es que lo esta
+     * 
+     * @return techado: String
+     */
+    public String techado() {
+        String techado = "¿El parqueo esta techado? S/N";
+        return techado;
+    }
+
+    /**
+     * Este método sirve para solicitar de manera textual los datos del aereo del
+     * Parqueo
+     * 
+     * @return aereo: String
+     */
+    public String aereo() {
+        String aereo = "¿El parqueo es aereo? S/N";
+        return aereo;
+    }
+
+    /**
+     * Este método sirve para solicitar de manera textual los datos de la direccion
+     * del Estacionamiento
+     * 
+     * @return
+     */
+    public String direccion_estacionamiento() {
+        String direccion = "Ingrese la direccion del parqueo: ";
+        return direccion;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public String nombre_estacionamiento() {
+        String nombre = "Ingrese el nombre del parqueo";
+        return nombre;
     }
 }

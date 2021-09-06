@@ -1,4 +1,3 @@
-
 import javax.swing.JOptionPane;
 
 /**
@@ -11,7 +10,6 @@ public class Principal {
     // Se agreago esta "propiedad" al metodo principa, puesto que se desea
     // tener utilizacion en todo sentido de la clase Interaccion
     private static Interaccion vista = new Interaccion();
-    private static Estacionamiento aparcar_vehiculo = new Estacionamiento();
     private static Archivos datos = new Archivos();
 
     /**
@@ -32,13 +30,15 @@ public class Principal {
                     break;
                 case 2:
                     // Sacar vehiculo
-
+                    salida_vehiculo();
                     break;
                 case 3:
                     // Crear parqueo
+                    datos_parqueo();
                     break;
                 case 4:
                     // Datos Estadisticos
+                    estadisticas();
                     break;
                 default:
                     vista.despedida();
@@ -67,7 +67,7 @@ public class Principal {
                 }
 
             } catch (NumberFormatException exception) {
-                vista.valor_invalido();
+                System.err.println(vista.valor_invalido());
             }
         } while (!pasar);
 
@@ -89,11 +89,45 @@ public class Principal {
         modelo_vehiculo = JOptionPane.showInputDialog(vista.modelo());
         hora_entrada = JOptionPane.showInputDialog(vista.hora_ingreso());
 
-        aparcar_vehiculo.agregar_vehiculo(vehiculo, placa_vehiculo, marca_vehiculo, modelo_vehiculo, hora_entrada);
+        Vehiculo vehiculos = new Vehiculo(vehiculo, placa_vehiculo, marca_vehiculo, modelo_vehiculo, hora_entrada);
     }
 
+    /**
+     * Este método sirve para obtener los datos del vehículo que sale del parqueo.
+     */
+    private static void salida_vehiculo() {
+
+    }
+
+    /**
+     * Este método sirve para obtener los datos del parqueo.
+     */
     private static void datos_parqueo() {
-        String ancho, largo, altura, techado, aereo;
+        float ancho = 0, largo = 0, altura = 0;
+        String techado = "", aereo = "";
         vista.nuevo_estacionamiento();
+
+        boolean pasar = false;
+        do {
+            techado = JOptionPane.showInputDialog(vista.techado());
+            aereo = JOptionPane.showInputDialog(vista.aereo());
+            try {
+                ancho = Float.parseFloat(JOptionPane.showInputDialog(vista.ancho()));
+                largo = Float.parseFloat(JOptionPane.showInputDialog(vista.largo()));
+                altura = Float.parseFloat(JOptionPane.showInputDialog(vista.alto()));
+                pasar = true;
+            } catch (NumberFormatException exception) {
+                System.err.println(vista.valor_invalido());
+            }
+        } while (!pasar);
+        EspacioParqueo espacio = new EspacioParqueo(ancho, largo, altura, techado, aereo);
+    }
+
+    /**
+     * Esta clase supone poder proveer a nuestro amigo la informacion que requiere
+     * para poder tener mas ganancias.
+     */
+    private static void estadisticas() {
+
     }
 }

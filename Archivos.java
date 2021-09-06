@@ -17,9 +17,14 @@ import java.util.ArrayList;
 public class Archivos {
     private Interaccion vista = new Interaccion();
     private ArrayList<Vehiculo> vehiculos;
+    private ArrayList<EspacioParqueo> espacioParqueos;
 
+    /**
+     * Constructor que inicializa el arreglo dinamico.
+     */
     public Archivos() {
         vehiculos = new ArrayList<>();
+        espacioParqueos = new ArrayList<>();
     }
 
     /**
@@ -89,13 +94,33 @@ public class Archivos {
         }
     }
 
-    // Guarda los datos, pero indica cual sera el archivo de destino y que
-    // encabezados tendra.
+    /**
+     * Guarda los elementos del vehículo que acaba de ingresar.
+     * 
+     * @param vehiculo:        String
+     * @param placa_vehiculo:  String
+     * @param marca_vehiculo:  String
+     * @param modelo_vehiculo: String
+     * @param hora_entrada:    String
+     */
     public void guardar_vehiculos(String vehiculo, String placa_vehiculo, String marca_vehiculo, String modelo_vehiculo,
             String hora_entrada) {
-        Vehiculo nuevo = new Vehiculo(vehiculo, placa_vehiculo, marca_vehiculo, modelo_vehiculo, hora_entrada);
-        vehiculos.add(nuevo);
+        vehiculos.add(new Vehiculo(vehiculo, placa_vehiculo, marca_vehiculo, modelo_vehiculo, hora_entrada));
         guardar("Aparcados.csv");
+    }
+
+    /**
+     * Guarda los elemnsto del espacio generado.
+     * 
+     * @param ancho:   float
+     * @param largo:   float
+     * @param altura:  float
+     * @param techado: String
+     * @param aereo:   String
+     */
+    public void guardar_espacio(float ancho, float largo, float altura, String techado, String aereo) {
+        espacioParqueos.add(new EspacioParqueo(ancho, largo, altura, techado, aereo));
+        guardar("Espacios.csv");
     }
 
 }
