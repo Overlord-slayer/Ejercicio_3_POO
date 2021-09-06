@@ -28,11 +28,8 @@ public class Archivos {
     public void leer_CSV(String nombre_archivo) {
         // StringBuilder sb = new StringBuilder();
         ArrayList<ArrayList<String>> datos_vehiculos = new ArrayList<ArrayList<String>>();
-        // Modificar la ruta segun la ruta donde guarde los archivos, recordad que la
-        // carpeta archivos se encuentran todos los archivos a utlilizar.
-        Path filePath = Paths
-                .get("C:\\Users\\s5349\\Documents\\Universidad\\Tareas_Universidad\\Ejercicio_3\\Archivos\\"
-                        + nombre_archivo);
+
+        Path filePath = Paths.get(nombre_archivo);
         try {
             // Tratar de leer el archivo segun su ruta.
             BufferedReader br = Files.newBufferedReader(filePath);
@@ -55,19 +52,23 @@ public class Archivos {
 
     }
 
+    /**
+     * Guardar los datos en un fichero .csv segun sea el caso.
+     */
     public void guardar(String nombre_archivo, String titulos) {
         File archivo;
         try {
             // Modificar la ruta del arhcivo a la ruta donde se ubica actualmente
-            archivo = new File("C:\\Users\\s5349\\Documents\\Universidad\\Tareas_Universidad\\Ejercicio_3\\Archivos\\"
-                    + nombre_archivo);
+            archivo = new File(nombre_archivo);
             if (archivo.exists()) {
                 vista.archivo_existente();
                 BufferedWriter bw = new BufferedWriter(new FileWriter(nombre_archivo, true));
                 bw.write(titulos + "\n");
                 for (Vehiculo vehiculo : vehiculos) {
                     String datos[] = vehiculo.getArray();
-                    bw.write(datos + "\n");
+                    for (int i = 0; i < datos.length; i++) {
+                        bw.write(datos[i] + ",");
+                    }
                 }
                 bw.close();
             } else if (archivo.createNewFile()) {
