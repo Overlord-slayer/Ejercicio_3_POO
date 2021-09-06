@@ -55,7 +55,7 @@ public class Archivos {
     /**
      * Guardar los datos en un fichero .csv segun sea el caso.
      */
-    public void guardar(String nombre_archivo, String titulos) {
+    public void guardar(String nombre_archivo) {
         File archivo;
         try {
             // Modificar la ruta del arhcivo a la ruta donde se ubica actualmente
@@ -63,11 +63,21 @@ public class Archivos {
             if (archivo.exists()) {
                 vista.archivo_existente();
                 BufferedWriter bw = new BufferedWriter(new FileWriter(nombre_archivo, true));
-                bw.write(titulos + "\n");
+                // bw.write(titulos + "\n");
                 for (Vehiculo vehiculo : vehiculos) {
                     String datos[] = vehiculo.getArray();
                     for (int i = 0; i < datos.length; i++) {
-                        bw.write(datos[i] + ",");
+                        int maximo = datos.length - 1;
+                        if (i == maximo) {
+                            bw.write(datos[i] + "\n");
+                        } else {
+                            // if (i == 0) {
+                            // bw.write("\n" + datos[i] + ",");
+                            // } else {
+                            bw.write(datos[i] + ",");
+                            // }
+                        }
+
                     }
                 }
                 bw.close();
@@ -79,11 +89,13 @@ public class Archivos {
         }
     }
 
+    // Guarda los datos, pero indica cual sera el archivo de destino y que
+    // encabezados tendra.
     public void guardar_vehiculos(String vehiculo, String placa_vehiculo, String marca_vehiculo, String modelo_vehiculo,
             String hora_entrada) {
         Vehiculo nuevo = new Vehiculo(vehiculo, placa_vehiculo, marca_vehiculo, modelo_vehiculo, hora_entrada);
         vehiculos.add(nuevo);
-        guardar("Aparcados.csv", "Dimension,placa,modelo,marca,entrada");
+        guardar("Aparcados.csv");
     }
 
 }
